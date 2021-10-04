@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build"
+  },
+  "dependencies": {
+    "next": "^11.1.2",
+    "remark-gfm": "^3.0.0",
+    "remark-parse": "^10.0.0",
+    "unified": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.26",
+    "@types/react-dom": "^17.0.9",
+    "sass": "^1.42.1",
+    "eslint": "^7.32.0",
+    "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.4.3"
+  }
+}
