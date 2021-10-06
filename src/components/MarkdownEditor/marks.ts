@@ -6,7 +6,7 @@ import { Root, Content } from "mdast";
 import React, { ReactElement, ReactNode } from "react";
 export type VNode = { type: string; value?: unknown; start: number; end: number };
 
-function stringify(this: Processor) {
+function ReactCompiler(this: Processor) {
   const expandNode = (node: Content & Partial<unist.Parent<Content>>, nodes: VNode[]) => {
     nodes.push({
       type: node.type,
@@ -19,6 +19,7 @@ function stringify(this: Processor) {
   const reactNode = (vnodes: VNode[], value: string): ReactNode => {
     let position = 0;
     let index = 0;
+    let nodeCount = 0;
     const getNode = (limit: number): ReactNode => {
       const nodes = [];
       while (position < limit && index < vnodes.length) {
@@ -59,12 +60,16 @@ function stringify(this: Processor) {
         }
       }
       if (position < limit) {
+        nodeCount++;
         nodes.push(value.substring(position, limit));
         position = limit;
       }
-      return nodes;
+      nodeCount += nodes.length;
+      return nodes.length ? nodes : null;
     };
-    return getNode(value.length);
+    const nodes = getNode(value.length);
+    if (!nodes) return;
+    return React.createElement("span", { key: nodeCount }, nodes);
   };
 
   const Compiler: Compiler = (tree: unist.Node & Partial<unist.Parent<unist.Node>>, value) => {
@@ -78,7 +83,7 @@ function stringify(this: Processor) {
   this.Compiler = Compiler;
 }
 
-export const processor = unified().use(remarkParse).use(remarkGfm).use(stringify) as Processor<
+export const processor = unified().use(remarkParse).use(remarkGfm).use(ReactCompiler) as Processor<
   Root,
   Root,
   Root,
