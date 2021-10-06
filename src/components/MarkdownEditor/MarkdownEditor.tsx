@@ -14,13 +14,40 @@ interface Props {
 
 export const MarkdownEditor: FC<Props> = ({ defaultValue, onChange }) => {
   const refNode = useRef<HTMLDivElement>(null);
-  const value = useRef<{ active?: boolean; position: number; dragText: string }>({
+  const value = useRef<{
+    active?: boolean;
+    position: number;
+    dragText: string;
+    histories: [number, string][];
+    historyIndex: number;
+  }>({
     position: 0,
     dragText: "",
-  });
+    histories: [],
+    historyIndex: 0,
+  }).current;
+  const [caret, setCaret] = useState(true);
   const [text, setText] = useState(defaultValue || "");
   const [reactNode, setReactNode] = useState<ReactNode>(null);
-
+  const pushText = (newText: string) => {
+    value.histories.splice(value.historyIndex++);
+    value.histories.push([value.position, text]);
+    setText(newText);
+  };
+  const undoText = () => {
+    if (value.historyIndex) {
+      if (value.historyIndex >= value.histories.length)
+        value.histories.push([value.position, text]);
+      else value.histories[value.historyIndex] = [value.position, text];
+      return value.histories[--value.historyIndex];
+    }
+    return undefined;
+  };
+  const redoText = () => {
+    if (value.historyIndex < value.histories.length - 1)
+      return value.histories[++value.historyIndex];
+    return undefined;
+  };
   const movePosition = (editor: HTMLElement, position: number) => {
     const selection = document.getSelection();
     if (!selection) return;
@@ -94,29 +121,29 @@ export const MarkdownEditor: FC<Props> = ({ defaultValue, onChange }) => {
   const insertText = (text: string) => {
     const pos = getPosition();
     const currentText = refNode.current!.innerText;
-    setText(currentText.slice(0, pos[0]) + text + currentText.slice(pos[1], currentText.length));
-    value.current.position = pos[0] + text.length;
+    pushText(currentText.slice(0, pos[0]) + text + currentText.slice(pos[1], currentText.length));
+    value.position = pos[0] + text.length;
   };
   const deleteInsertText = (text: string, start: number, end: number) => {
     const pos = getPosition();
     const currentText = refNode.current!.innerText;
     if (pos[0] < start) {
       const currentText2 = currentText.slice(0, start) + currentText.slice(end, currentText.length);
-      setText(
+      pushText(
         currentText2.slice(0, pos[0]) + text + currentText2.slice(pos[1], currentText2.length)
       );
-      value.current.position = pos[0] + text.length;
+      value.position = pos[0] + text.length;
     } else {
       const currentText2 =
         currentText.slice(0, pos[0]) + text + currentText.slice(pos[1], currentText.length);
-      setText(currentText2.slice(0, start) + currentText2.slice(end, currentText2.length));
-      value.current.position = pos[0] + text.length + start - end;
+      pushText(currentText2.slice(0, start) + currentText2.slice(end, currentText2.length));
+      value.position = pos[0] + text.length + start - end;
     }
   };
   const deleteText = (start: number, end: number) => {
     const currentText = refNode.current!.innerText;
     const text = currentText.slice(0, start) + currentText.slice(end, currentText.length);
-    setText(text);
+    pushText(text);
   };
   useEffect(() => {
     processor
@@ -132,17 +159,19 @@ export const MarkdownEditor: FC<Props> = ({ defaultValue, onChange }) => {
       .catch((e) => {
         console.error(e);
       });
+    setCaret(false);
   }, [text]);
   useEffect(() => {
-    movePosition(refNode.current!, value.current.position);
+    movePosition(refNode.current!, value.position);
+    setCaret(true);
   }, [reactNode]);
 
   const handleInput: FormEventHandler<HTMLElement> = (e) => {
     e.preventDefault();
     const currentText = e.currentTarget.innerText;
-    if (!value.current.active) {
-      setText(currentText);
-      value.current.position = getPosition()[0];
+    if (!value.active) {
+      pushText(currentText);
+      value.position = getPosition()[0];
       onChange?.(currentText);
     }
   };
@@ -150,6 +179,7 @@ export const MarkdownEditor: FC<Props> = ({ defaultValue, onChange }) => {
   return (
     <>
       <div
+        style={{ caretColor: caret ? "auto" : "transparent" }}
         className={styled.root}
         key={reactNode ? 0 : 1}
         ref={refNode}
@@ -162,7 +192,7 @@ export const MarkdownEditor: FC<Props> = ({ defaultValue, onChange }) => {
           e.preventDefault();
         }}
         onDragEnter={(e) => {
-          value.current.dragText = e.dataTransfer.getData("text/plain");
+          value.dragText = e.dataTransfer.getData("text/plain");
         }}
         onDrop={(e) => {
           if (document.caretRangeFromPoint) {
@@ -202,7 +232,7 @@ export const MarkdownEditor: FC<Props> = ({ defaultValue, onChange }) => {
               const p = getPosition();
               if (p[0] === refNode.current!.innerText.length) {
                 insertText("\n\n");
-                value.current.position--;
+                value.position--;
               } else insertText("\n");
               e.preventDefault();
               break;
@@ -212,7 +242,7 @@ export const MarkdownEditor: FC<Props> = ({ defaultValue, onChange }) => {
                 const start = Math.max(p[0] - 1, 0);
                 const end = Math.min(p[1], refNode.current!.innerText.length);
                 deleteText(start, end);
-                value.current.position = start;
+                value.position = start;
                 e.preventDefault();
               }
               break;
@@ -220,17 +250,35 @@ export const MarkdownEditor: FC<Props> = ({ defaultValue, onChange }) => {
               {
                 const p = getPosition();
                 deleteText(p[0], p[1] + 1);
-                value.current.position = p[0];
+                value.position = p[0];
                 e.preventDefault();
+              }
+              break;
+            case "z":
+              if (e.ctrlKey && !e.shiftKey) {
+                const p = undoText();
+                if (p) {
+                  value.position = p[0];
+                  setText(p[1]);
+                }
+              }
+              break;
+            case "y":
+              if (e.ctrlKey && !e.shiftKey) {
+                const p = redoText();
+                if (p) {
+                  value.position = p[0];
+                  setText(p[1]);
+                }
               }
               break;
           }
         }}
         onCompositionStart={() => {
-          value.current.active = true;
+          value.active = true;
         }}
         onCompositionEnd={() => {
-          value.current.active = false;
+          value.active = false;
         }}
         suppressContentEditableWarning={true}
         // dangerouslySetInnerHTML={{
