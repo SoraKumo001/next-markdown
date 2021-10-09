@@ -1,29 +1,33 @@
 import React from "react";
-import { MarkdownEditor } from "../components/MarkdownEditor";
+import { MarkdownEditor } from "@react-libraries/markdown-editor";
 
-const value = `# タイトル
+import styled from "./index.module.scss";
+const value = `# Title
 
-文章中に**強調**を入れる
+Putting **emphasis** in a sentence
 
-- リスト
-- リスト
+- ListItem
+- ListItem
 
-## テーブル実験
+## Table
 
-| Parts         | Description                                |
+| Header1       | Header2                                    |
 | ------------- | ------------------------------------------ |
-| Icon          | タイトルで使用するアイコン                 |
-| TitleBar      | Windowのタイトルバーの部分                 |
-| ResizeFrame   | サイズ変更用の不可視フレーム               |
-| Client        | クライアント領域(オーバーラップ制御に必要) |
-| VirtualWindow | 全てを統合した仮想Windowコンポーネント     |
+| name1         | info1                                      |
+| name2         | info 2                                     |
 
 # A*B*CD
 
-ふぉっふぉっふぉ
+AAAAAAA
 `;
 
 const Page = () => {
-  return <MarkdownEditor defaultValue={value} />;
+  return (
+    <MarkdownEditor
+      className={styled.markdown}
+      defaultValue={value}
+      onChange={(v) => console.log({ v })}
+    />
+  );
 };
 export default Page;
