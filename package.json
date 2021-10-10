@@ -1,26 +1,31 @@
 {
   "scripts": {
     "dev": "next",
+    "dev:clear": "rmdir /s /q .next &&  next",
     "start": "next start",
     "build": "next build"
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "@react-libraries/markdown-editor": "^0.0.1",
-    "next": "^11.1.2",
-    "remark-gfm": "^3.0.0",
-    "remark-parse": "^10.0.0",
-    "unified": "^10.1.0"
+    "@react-libraries/markdown-editor": "^0.0.2",
+    "@react-libraries/use-local-event": "^1.0.2",
+    "next": "^11.1.2"
   },
   "devDependencies": {
     "@types/react": "^17.0.27",
     "@types/react-dom": "^17.0.9",
-    "eslint": "^7.32.0",
+    "eslint": "^8.0.0",
     "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "sass": "^1.42.1",
     "typescript": "^4.4.3"
-  }
+  },
+  "name": "next-markdown",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/SoraKumo001/next-markdown",
+  "author": "SoraKumo <info@croud.jp>",
+  "license": "MIT"
 }

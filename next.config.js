@@ -3,7 +3,7 @@
  */
 const config = {
   experimental: {
-    // esmExternals: true,
+    esmExternals: true,
     // swcLoader: true,
     // swcMinify: true,
     cpus: 4,
