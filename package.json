@@ -8,19 +8,19 @@
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "@react-libraries/markdown-editor": "^0.0.2",
+    "@react-libraries/markdown-editor": "^0.0.7",
     "@react-libraries/use-local-event": "^1.0.2",
     "next": "^11.1.2"
   },
   "devDependencies": {
-    "@types/react": "^17.0.27",
+    "@types/react": "^17.0.29",
     "@types/react-dom": "^17.0.9",
-    "eslint": "^8.0.0",
+    "eslint": "^8.0.1",
     "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "sass": "^1.42.1",
-    "typescript": "^4.4.3"
+    "sass": "^1.43.2",
+    "typescript": "^4.4.4"
   },
   "name": "next-markdown",
   "version": "1.0.0",

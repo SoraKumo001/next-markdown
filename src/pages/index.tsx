@@ -1,6 +1,10 @@
 import { dispatchLocalEvent } from '@react-libraries/use-local-event';
-import React, { useState } from 'react';
-import { MarkdownEditor, useMarkdownEditor } from '@react-libraries/markdown-editor';
+import React, { ElementType, useState } from 'react';
+import {
+  MarkdownEditor,
+  useMarkdownEditor,
+  MarkdownComponents,
+} from '@react-libraries/markdown-editor';
 import styled from './index.module.scss';
 const defaultValue = `# Title
 
@@ -20,11 +24,27 @@ Putting **emphasis** in a sentence
 
 AAAAAAA
 `;
-
 const Page = () => {
   const [value, setValue] = useState(defaultValue);
   const [message, setMessage] = useState('');
   const event = useMarkdownEditor();
+
+  const components: MarkdownComponents = {
+    strong: ({ children, node, ...props }) => <strong {...props}>{children}</strong>,
+    heading: ({ children, node, ...props }) => {
+      const Tag = ('h' + node.depth) as ElementType;
+      return (
+        <Tag
+          {...props}
+          onMouseOver={(e: React.MouseEvent<HTMLHeadingElement>) =>
+            setMessage(e.currentTarget.innerText)
+          }
+        >
+          {children}
+        </Tag>
+      );
+    },
+  };
 
   return (
     <div className={styled.root}>
@@ -119,7 +139,13 @@ const Page = () => {
         redo
       </button>
       <div>{message}</div>
-      <MarkdownEditor className={styled.markdown} event={event} value={value} onUpdate={setValue} />
+      <MarkdownEditor
+        className={styled.markdown}
+        event={event}
+        value={value}
+        onUpdate={setValue}
+        components={components}
+      />
       {/* uncontrolled */}
       {/* <MarkdownEditor className={styled.markdown} event={event} defaultValue={defaultValue} /> */}
     </div>
