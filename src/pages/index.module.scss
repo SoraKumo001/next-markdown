@@ -5,29 +5,4 @@
     padding: 8px;
     border-radius: 8px;
   }
-  .markdown {
-    border: 1px solid;
-    padding: 8px;
-    border-radius: 8px;
-
-    [datatype="heading"] {
-      color: blue;
-    }
-    // [datatype="list"] {
-    //   //display: inline-block;
-    //   background: lightgray;
-    //   > * {
-    //     margin-left: 8px;
-    //   }
-    // }
-    code {
-      display: inline-block;
-      background: lightgray;
-    }
-  }
-  button {
-    margin: 8px;
-    padding: 8px;
-    border-radius: 8px;
-  }
 }

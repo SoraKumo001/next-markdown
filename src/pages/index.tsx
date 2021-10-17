@@ -1,50 +1,14 @@
-import { dispatchLocalEvent } from '@react-libraries/use-local-event';
-import React, { ElementType, useState } from 'react';
-import {
-  MarkdownEditor,
-  useMarkdownEditor,
-  MarkdownComponents,
-} from '@react-libraries/markdown-editor';
+import React from 'react';
+import Link from 'next/link';
 import styled from './index.module.scss';
-const defaultValue = `# Title
 
-Putting **emphasis** in a sentence
-
-- ListItem
-- ListItem
-
-## Table
-
-| Header1       | Header2                                    |
-| ------------- | ------------------------------------------ |
-| name1         | info1                                      |
-| name2         | info 2                                     |
-
-# A*B*CD
-
-AAAAAAA
-`;
 const Page = () => {
-  const [value, setValue] = useState(defaultValue);
-  const [message, setMessage] = useState('');
-  const event = useMarkdownEditor();
-
-  const components: MarkdownComponents = {
-    strong: ({ children, node, ...props }) => <strong {...props}>{children}</strong>,
-    heading: ({ children, node, ...props }) => {
-      const Tag = ('h' + node.depth) as ElementType;
-      return (
-        <Tag
-          {...props}
-          onMouseOver={(e: React.MouseEvent<HTMLHeadingElement>) =>
-            setMessage(e.currentTarget.innerText)
-          }
-        >
-          {children}
-        </Tag>
-      );
-    },
-  };
+  const menus = [
+    ['Basic', 'Sample01'],
+    ['Style', 'Sample02'],
+    ['Custom component', 'Sample03'],
+    ['Dispatch', 'Sample04'],
+  ];
 
   return (
     <div className={styled.root}>
@@ -62,92 +26,12 @@ const Page = () => {
           </a>
         </div>
       </div>
-      <button
-        onClick={() => {
-          setValue(defaultValue);
-        }}
-      >
-        init
-      </button>
-      <button
-        onClick={() => {
-          dispatchLocalEvent(event, {
-            type: 'getPosition',
-            payload: {
-              onResult: (start, end) => setMessage(`start:${start},end:${end}`),
-            },
-          });
-        }}
-      >
-        getPosition
-      </button>
-      <button
-        onClick={() => {
-          dispatchLocalEvent(event, {
-            type: 'setPosition',
-            payload: { start: 0, end: value.length },
-          });
-        }}
-      >
-        setPosition
-      </button>
-      <button
-        onClick={() => {
-          dispatchLocalEvent(event, {
-            type: 'setFocus',
-          });
-        }}
-      >
-        setFocus
-      </button>
-      <button
-        onClick={() => {
-          dispatchLocalEvent(event, {
-            type: 'update',
-            payload: { value: '{new value}\n', start: 0 },
-          });
-        }}
-      >
-        insert to first
-      </button>
-      <button
-        onClick={() => {
-          dispatchLocalEvent(event, {
-            type: 'update',
-            payload: { value: '{new value}\n' },
-          });
-        }}
-      >
-        insert to caret
-      </button>
-      <button
-        onClick={() => {
-          dispatchLocalEvent(event, {
-            type: 'undo',
-          });
-        }}
-      >
-        undo
-      </button>
-      <button
-        onClick={() => {
-          dispatchLocalEvent(event, {
-            type: 'redo',
-          });
-        }}
-      >
-        redo
-      </button>
-      <div>{message}</div>
-      <MarkdownEditor
-        className={styled.markdown}
-        event={event}
-        value={value}
-        onUpdate={setValue}
-        components={components}
-      />
-      {/* uncontrolled */}
-      {/* <MarkdownEditor className={styled.markdown} event={event} defaultValue={defaultValue} /> */}
+
+      {menus.map(([name, href], index) => (
+        <div key={name}>
+          {index + 1}:<Link href={`/${href}`}>{name}</Link>
+        </div>
+      ))}
     </div>
   );
 };

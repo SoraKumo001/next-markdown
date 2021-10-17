@@ -8,12 +8,12 @@
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "@react-libraries/markdown-editor": "^0.0.7",
+    "@react-libraries/markdown-editor": "^0.0.9",
     "@react-libraries/use-local-event": "^1.0.2",
     "next": "^11.1.2"
   },
   "devDependencies": {
-    "@types/react": "^17.0.29",
+    "@types/react": "^17.0.30",
     "@types/react-dom": "^17.0.9",
     "eslint": "^8.0.1",
     "prettier": "^2.4.1",

@@ -293,10 +293,10 @@
   dependencies:
     "@napi-rs/triples" "^1.0.3"
 
-"@react-libraries/markdown-editor@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@react-libraries/markdown-editor/-/markdown-editor-0.0.7.tgz#d108153849993663207711db7712dd04365e6b5c"
-  integrity sha512-HuA74PXRAi+YB5GnfmhVQ8nV9rEckiUTYPxfcekV/bzW1neE4ygwFIQSxKIBvpi0BYbCQLXrhEXNWPyZg3GOkA==
+"@react-libraries/markdown-editor@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@react-libraries/markdown-editor/-/markdown-editor-0.0.9.tgz#a633b76362cb381e4bda632204dd2268ad78e20e"
+  integrity sha512-Dj/WUf/YluDzRcjr3W6yZnsb2c9TEM5LN7RZeuf5iTB44Gl+fOufHFfvmmzCHbG9aje5yKXV+X3boBcK9cLBnA==
   dependencies:
     "@react-libraries/use-local-event" "^1.0.2"
     react "*"
@@ -363,10 +363,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@^17.0.29":
-  version "17.0.29"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.29.tgz#9535f3fc01a4981ce9cadcf0daa2593c0c2f2251"
-  integrity sha512-HSenIfBEBZ70BLrrVhtEtHpqaP79waauPtA8XKlczTxL3hXrW/ElGNLTpD1TmqkykgGlOAK55+D3SmUHEirpFw==
+"@types/react@^17.0.30":
+  version "17.0.30"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.30.tgz#2f8e6f5ab6415c091cc5e571942ee9064b17609e"
+  integrity sha512-3Dt/A8gd3TCXi2aRe84y7cK1K8G+N9CZRDG8kDGguOKa0kf/ZkSwTmVIDPsm/KbQOVMaDJXwhBtuOXxqwdpWVg==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
