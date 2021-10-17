@@ -293,10 +293,10 @@
   dependencies:
     "@napi-rs/triples" "^1.0.3"
 
-"@react-libraries/markdown-editor@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@react-libraries/markdown-editor/-/markdown-editor-0.0.9.tgz#a633b76362cb381e4bda632204dd2268ad78e20e"
-  integrity sha512-Dj/WUf/YluDzRcjr3W6yZnsb2c9TEM5LN7RZeuf5iTB44Gl+fOufHFfvmmzCHbG9aje5yKXV+X3boBcK9cLBnA==
+"@react-libraries/markdown-editor@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@react-libraries/markdown-editor/-/markdown-editor-1.0.0.tgz#4efe205874acec22468b1f8d5d2d581026ce4289"
+  integrity sha512-6lvT+ZfM50B45ArVZclLxIOVsZCeoCrSzOQ4NwSia2FgZ82lSAuTDwdw0x/RMdanzUierY3Vmp1fUpYlenodYg==
   dependencies:
     "@react-libraries/use-local-event" "^1.0.2"
     react "*"

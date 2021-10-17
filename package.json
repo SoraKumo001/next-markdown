@@ -8,7 +8,7 @@
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "@react-libraries/markdown-editor": "^0.0.9",
+    "@react-libraries/markdown-editor": "^1.0.0",
     "@react-libraries/use-local-event": "^1.0.2",
     "next": "^11.1.2"
   },

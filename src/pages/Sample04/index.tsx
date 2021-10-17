@@ -53,7 +53,7 @@ const Page = () => {
         onClick={() => {
           dispatchMarkdown(event, {
             type: 'setPosition',
-            payload: { start: 0, end: value.length - 1 },
+            payload: { start: 0, end: -1 },
           });
         }}
       >
