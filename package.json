@@ -6,11 +6,9 @@
     "build": "next build"
   },
   "dependencies": {
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
-    "@react-libraries/markdown-editor": "^1.0.0",
-    "@react-libraries/use-local-event": "^1.0.2",
-    "next": "^11.1.2"
+    "@react-libraries/markdown-editor": "^1.0.1",
+    "next": "^11.1.2",
+    "react-markdown": "^7.0.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.30",

@@ -8,6 +8,7 @@ const Page = () => {
     ['Style', 'Sample02'],
     ['Custom component', 'Sample03'],
     ['Dispatch', 'Sample04'],
+    ['Scroll', 'Sample05'],
   ];
 
   return (
