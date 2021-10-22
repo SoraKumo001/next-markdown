@@ -8,8 +8,10 @@
     border: 1px solid;
     padding: 8px;
     border-radius: 8px;
-    overflow: auto;
     max-height: 100%;
     margin: 16px;
+  }
+  .preview {
+    overflow: auto;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   MarkdownEditor,
   useMarkdownEditor,
@@ -44,8 +44,6 @@ const Page = () => {
               ? [start - line, node]
               : near;
           }, undefined);
-          for (const n of nodes) {
-          }
           if (near) {
             near[1].scrollIntoView();
           }
@@ -63,7 +61,7 @@ const Page = () => {
         onUpdate={setValue}
         onScroll={handleScroll}
       />
-      <div ref={ref}>
+      <div ref={ref} className={styled.preview}>
         <ReactMarkdown remarkPlugins={[remarkGfm]} sourcePos={true}>
           {value}
         </ReactMarkdown>
