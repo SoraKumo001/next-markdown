@@ -163,10 +163,10 @@
   dependencies:
     "@napi-rs/triples" "^1.0.3"
 
-"@react-libraries/markdown-editor@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@react-libraries/markdown-editor/-/markdown-editor-1.0.2.tgz#c3814a17dfe6ce6f59d866e4ae3afb75254a3f82"
-  integrity sha512-n82NxBfZcrmPTL7LZRE+JrbF95NbPefZ3YiA8Pqb3SeacnakTG94pjQRLuOOiLgJAzhcXhzVuKK4i+/DNPV6vQ==
+"@react-libraries/markdown-editor@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@react-libraries/markdown-editor/-/markdown-editor-1.0.3.tgz#bea690231882a69faaff092dcf14581de55ee204"
+  integrity sha512-umXI7POprvl3aHhHJrz9MFWmMn9cuP5t0lIZMux4hoFD/5oWl/HMShu2Ct90nrC0E3Q7EODbYiik8/6N/lm8Gw==
   dependencies:
     "@react-libraries/use-local-event" "^1.0.2"
     react "*"
@@ -240,10 +240,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@^17.0.31":
-  version "17.0.31"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.31.tgz#fe05ebf91ff3ae35bb6b13f6c1b461db8089dff8"
-  integrity sha512-MQSR5EL4JZtdWRvqDgz9kXhSDDoy2zMTYyg7UhP+FZ5ttUOocWyxiqFJiI57sUG0BtaEX7WDXYQlkCYkb3X9vQ==
+"@types/react@^17.0.32":
+  version "17.0.32"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.32.tgz#89a161286bbe2325d4d516420a27364a324909f4"
+  integrity sha512-hAm1pmwA3oZWbkB985RFwNvBRMG0F3KWSiC4/hNmanigKZMiKQoH5Q6etNw8HIDztTGfvXyOjPvdNnvBUCuaPg==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -978,10 +978,10 @@ eslint-visitor-keys@^3.0.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-3.0.0.tgz#e32e99c6cdc2eb063f204eda5db67bfe58bb4186"
   integrity sha512-mJOZa35trBTb3IyRmo8xmKBZlxf+N7OnUl4+ZhJHs/r+0770Wh/LEACE2pqMGMe27G/4y8P2bYGk4J70IC5k1Q==
 
-eslint@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.0.1.tgz#3610e7fe4a05c2154669515ca60835a76a19f700"
-  integrity sha512-LsgcwZgQ72vZ+SMp4K6pAnk2yFDWL7Ti4pJaRvsZ0Hsw2h8ZjUIW38a9AFn2cZXdBMlScMFYYgsSp4ttFI/0bA==
+eslint@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.1.0.tgz#00f1f7dbf4134f26588e6c9f2efe970760f64664"
+  integrity sha512-JZvNneArGSUsluHWJ8g8MMs3CfIEzwaLx9KyH4tZ2i+R2/rPWzL8c0zg3rHdwYVpN/1sB9gqnjHwz9HoeJpGHw==
   dependencies:
     "@eslint/eslintrc" "^1.0.3"
     "@humanwhocodes/config-array" "^0.6.0"

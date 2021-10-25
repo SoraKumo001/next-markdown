@@ -84,7 +84,11 @@ const Page = () => {
           }}
         >
           {/* If you use `data-type="ignore"`, it will be excluded from the character count. */}
-          <div style={{ display: 'block' }} contentEditable={false} data-type="ignore">
+          <div
+            style={{ display: 'block', userSelect: 'none' }}
+            contentEditable={false}
+            data-type="ignore"
+          >
             [Header]
           </div>
           {children}
