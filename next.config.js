@@ -2,10 +2,8 @@
  * @type { import("next").NextConfig}
  */
 const config = {
+  swcMinify: true,
   experimental: {
-    esmExternals: true,
-    // swcLoader: true,
-    // swcMinify: true,
     cpus: 4,
   },
 };
