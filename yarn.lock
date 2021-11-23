@@ -191,17 +191,17 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.0.4.tgz#acb9ffb17118b797d8c76dd688dd0aec5fa65cd4"
   integrity sha512-f+7WNIJOno5QEelrmob+3vN5EZJb3KCkOrnvUsQ0+LCCD0dIPIhCjeHAh3BGj9msGu8ijnXvD7JxVxE5V26cnQ==
 
-"@react-libraries/markdown-editor@^1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@react-libraries/markdown-editor/-/markdown-editor-1.0.10.tgz#f5675acdc93fdc82b4401801cb279161e2348722"
-  integrity sha512-/MXoFPOUh4D5SaibSHQNM2/jo/TS3f5Yg/MAvdLAe9RcfU1GSLyMTYdW94uF9XNiIhyC/1yG7UIFsYz264XwCA==
+"@react-libraries/markdown-editor@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/@react-libraries/markdown-editor/-/markdown-editor-1.0.12.tgz#fb39eb2cb6851c1c20e1a8437b34d3a4a9342f6a"
+  integrity sha512-ZqWd/NpUMT3zqsXXfqdLM91j+5cBe+e+xFWNJp4odNme/JgrPve2XXW0oduM9WWAdbU1OIZvgUBcURoVvivcVA==
   dependencies:
     "@react-libraries/use-local-event" "^1.0.2"
     react "*"
     react-dom "*"
     remark-gfm "^3.0.1"
-    remark-parse "^10.0.0"
-    unified "^10.1.0"
+    remark-parse "^10.0.1"
+    unified "^10.1.1"
 
 "@react-libraries/use-local-event@^1.0.2":
   version "1.0.2"
@@ -2601,6 +2601,15 @@ remark-parse@^10.0.0:
     mdast-util-from-markdown "^1.0.0"
     unified "^10.0.0"
 
+remark-parse@^10.0.1:
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/remark-parse/-/remark-parse-10.0.1.tgz#6f60ae53edbf0cf38ea223fe643db64d112e0775"
+  integrity sha512-1fUyHr2jLsVOkhbvPRBJ5zTKZZyD6yZzYaWCS6BPBdQ8vEMBCH+9zNCDA6tET/zHCi/jLqjCWtlJZUPk+DbnFw==
+  dependencies:
+    "@types/mdast" "^3.0.0"
+    mdast-util-from-markdown "^1.0.0"
+    unified "^10.0.0"
+
 remark-rehype@^9.0.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/remark-rehype/-/remark-rehype-9.1.0.tgz#e4b5b6e19c125b3780343eb66c3e9b99b0f06a81"
@@ -2958,10 +2967,23 @@ unbox-primitive@^1.0.1:
     has-symbols "^1.0.2"
     which-boxed-primitive "^1.0.2"
 
-unified@^10.0.0, unified@^10.1.0:
+unified@^10.0.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/unified/-/unified-10.1.0.tgz#4e65eb38fc2448b1c5ee573a472340f52b9346fe"
   integrity sha512-4U3ru/BRXYYhKbwXV6lU6bufLikoAavTwev89H5UxY8enDFaAT2VXmIXYNm6hb5oHPng/EXr77PVyDFcptbk5g==
+  dependencies:
+    "@types/unist" "^2.0.0"
+    bail "^2.0.0"
+    extend "^3.0.0"
+    is-buffer "^2.0.0"
+    is-plain-obj "^4.0.0"
+    trough "^2.0.0"
+    vfile "^5.0.0"
+
+unified@^10.1.1:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/unified/-/unified-10.1.1.tgz#345e349e3ab353ab612878338eb9d57b4dea1d46"
+  integrity sha512-v4ky1+6BN9X3pQrOdkFIPWAaeDsHPE1svRDxq7YpTc2plkIqFMwukfqM+l0ewpP9EfwARlt9pPFAeWYhHm8X9w==
   dependencies:
     "@types/unist" "^2.0.0"
     bail "^2.0.0"
