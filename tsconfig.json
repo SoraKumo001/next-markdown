@@ -20,8 +20,8 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "*.js": [
-        "*"
+      "@react-libraries/markdown-editor": [
+        "./src/libs/@react-libraries/markdown-editor/dist"
       ]
     },
   },
